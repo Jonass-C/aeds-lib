@@ -7,7 +7,7 @@ Repositório pessoal para estudar os conceitos ensinados na disciplina **Algorit
 - [x] *Listas Encadeadas*
 - [x] *Listas Duplamente Encadeadas*
 - [x] *Pilhas*
-- [ ] Filas
+- [x] *Filas*
 - [ ] Árvores
 - [ ] Ordenação
 

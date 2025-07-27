@@ -19,6 +19,12 @@ add_executable(aeds_lib_duplamente
 
 add_executable(aeds_lib_pilhas
     "src/pilhas/main.c"
-    "src/pilhas/pilhas.c"
     "src/pilhas/pilhas.h"
+    "src/pilhas/pilhas.c"
+)
+
+add_executable(aeds_lib_filas
+    "src/filas/main.c"
+    "src/filas/filas.h"
+    "src/filas/filas.c"
 )

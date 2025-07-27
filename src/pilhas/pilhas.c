@@ -43,10 +43,12 @@ void removerElementos(Pilha *pilha) {
 }
 
 int consultarValor(Pilha *pilha) {
+
     if (estaVazio(pilha)) {
         printf("Pilha vazia\n");
-        return 0;
+        return -1;
     }
+
     return pilha->topo->prox->dado;
 }
 
