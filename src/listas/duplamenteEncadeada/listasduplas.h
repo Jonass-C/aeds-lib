@@ -22,6 +22,7 @@ void removerPorPosicao(Lista *lista, int posicao);
 void trocarElementos(Lista *lista, int posicao1, int posicao2);
 void ordenarCrescenteDados(Lista *lista);
 void ordenarDecrescenteDados(Lista *lista);
+int tamanhoLista(Lista *lista);
 void imprimirLista(Lista *lista);
 int apagarLista(Lista *lista);
 

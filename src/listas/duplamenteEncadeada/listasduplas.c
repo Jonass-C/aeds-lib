@@ -105,7 +105,7 @@ void removerPorPosicao(Lista *lista, int posicao) {
 void trocarElementos(Lista *lista, int posicao1, int posicao2) {
 
 
-    if (estaVazio(lista) || posicao1 < 0 || posicao2 < 0 || posicao1 >= lista->tamanho || posicao2 >= lista->tamanho || posicao1 == posicao2) {
+    if (estaVazio(lista) || posicao1 < 0 || posicao2 < 0 || posicao1 >= lista->tamanho || posicao2 >= lista->tamanho || posicao1 == posicao2 || lista->tamanho < 2) {
         printf("Posições incorretas\n");
         return;
     }
@@ -151,12 +151,12 @@ void trocarElementos(Lista *lista, int posicao1, int posicao2) {
         }
     }
 
+    No *aux = troca1;
     troca1->ant = troca2->ant;
     troca2->ant->prox = troca1;
     troca1->prox = troca2->prox;
     troca2->prox->ant = troca1;
 
-    No *aux = troca1;
     troca2->ant = aux->ant;
     aux->ant->prox = troca2;
     troca2->prox = aux->prox;
@@ -165,6 +165,10 @@ void trocarElementos(Lista *lista, int posicao1, int posicao2) {
 }
 
 void ordenarCrescenteDados(Lista *lista) {
+
+    if (lista->tamanho < 2) {
+        return;
+    }
 
     No *primeiro = lista->cabeca->prox;
     No *segundo;
@@ -184,6 +188,10 @@ void ordenarCrescenteDados(Lista *lista) {
 
 void ordenarDecrescenteDados(Lista *lista) {
 
+    if (lista->tamanho < 2) {
+        return;
+    }
+
     No *primeiro = lista->cabeca->prox;
     No *segundo;
     for (int i = 0; i < lista->tamanho - 1; i++) {
@@ -198,6 +206,10 @@ void ordenarDecrescenteDados(Lista *lista) {
         }
         primeiro = primeiro->prox;
     }
+}
+
+int tamanhoLista(Lista *lista) {
+    return lista->tamanho;
 }
 
 void imprimirLista(Lista *lista) {

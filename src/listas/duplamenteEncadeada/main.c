@@ -28,6 +28,8 @@ int main() {
     trocarElementos(lista, 1, 3);
     imprimirLista(lista);
 
+    printf("\nTamanho atual da lista: %d\n", lista->tamanho);
+
     printf("\nOrdenando lista em ordem crescente");
     ordenarCrescenteDados(lista);
     imprimirLista(lista);
