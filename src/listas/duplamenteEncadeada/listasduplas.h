@@ -13,6 +13,7 @@ typedef struct {
     No *cabeca;
 } Lista;
 
+// apenas as funções que possuem lógicas diferentes de listas simples
 Lista *criarLista();
 bool estaVazio(Lista *lista);
 void inserirPorPosicao(Lista *lista, int posicao, int dado);
@@ -22,8 +23,7 @@ void removerPorPosicao(Lista *lista, int posicao);
 void trocarElementos(Lista *lista, int posicao1, int posicao2);
 void ordenarCrescenteDados(Lista *lista);
 void ordenarDecrescenteDados(Lista *lista);
-int tamanhoLista(Lista *lista);
 void imprimirLista(Lista *lista);
 int apagarLista(Lista *lista);
 
-#endif //LISTASDUPLAS_H
+#endif

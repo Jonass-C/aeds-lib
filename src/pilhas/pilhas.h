@@ -9,16 +9,19 @@ typedef struct no {
 
 typedef struct {
     int tamanho;
-    No *topo; // será a célula cabeça da minha pilha, não o primeiro elemento. Primeiro elemento será topo->prox
+    No *topo; // aponta para o primeiro elemento
 } Pilha;
 
 Pilha *criarPilha();
 bool estaVazio(Pilha *pilha);
-void inserirElemento(Pilha *pilha, int dado);
-void removerElementos(Pilha *pilha);
+void empilha(Pilha *pilha, int dado);
+int desempilha(Pilha *pilha);
+void removerItem(Pilha *pilha, int dado);
 int consultarValor(Pilha *pilha);
 int tamanhoPilha(Pilha *pilha);
+void ordenarPilha(Pilha *pilha);
+void inverterPilha(Pilha *pilha);
 void imprimirPilha(Pilha *pilha);
 int apagarPilha(Pilha *pilha);
 
-#endif //PILHAS_H
+#endif

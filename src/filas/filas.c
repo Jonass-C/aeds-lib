@@ -3,8 +3,6 @@
 #include <stdbool.h>
 #include "filas.h"
 
-#include <math.h>
-
 Fila *criarFila() {
 
     Fila *fila = (Fila*) malloc(sizeof(Fila));
@@ -66,7 +64,71 @@ int tamanhoFila(Fila *fila) {
     return fila->tamanho;
 }
 
+void inverterFila(Fila *fila) {
+
+    if (fila->tamanho < 2) {
+        return;
+    }
+
+    int dados[fila->tamanho];
+    int tamanho = fila->tamanho;
+
+    for (int i = 0; i < tamanho; i++) {
+        dados[i] = desenfileirar(fila);
+    }
+
+    for (int i = tamanho - 1; i >= 0; i--) {
+        enfileirar(fila, dados[i]);
+    }
+}
+
+Fila *mesclarFilas(Fila *fila1, Fila *fila2) {
+
+    Fila *mesclada = criarFila();
+
+    No *no1 = fila1->cabeca->prox;
+
+    while (no1 != NULL) {
+        enfileirar(mesclada, no1->dado);
+        no1 = no1->prox;
+    }
+
+    No *no2 = fila2->cabeca->prox;
+
+    while (no2 != NULL) {
+        enfileirar(mesclada, no2->dado);
+        no2 = no2->prox;
+    }
+
+    return mesclada;
+}
+
+bool compararFilas(Fila *fila1, Fila *fila2) {
+
+    if (fila1->tamanho != fila2->tamanho || estaVazio(fila1) || estaVazio(fila2)) {
+        return false;
+    }
+
+    No *no1 = fila1->cabeca->prox;
+    No *no2 = fila2->cabeca->prox;
+
+    while (no1 != NULL && no2 != NULL) {
+        if (no1->dado != no2->dado) {
+            return false;
+        }
+        no1 = no1->prox;
+        no2 = no2->prox;
+    }
+
+    return true;
+}
+
 void imprimirFila(Fila *fila) {
+
+    if (estaVazio(fila)) {
+        printf("Fila vazia\n");
+        return;
+    }
 
     No *aux = fila->cabeca->prox;
     while (aux != NULL) {

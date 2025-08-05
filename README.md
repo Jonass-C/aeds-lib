@@ -1,6 +1,8 @@
 # 🧩 Estruturas de Dados
 
-Repositório pessoal para estudar os conceitos ensinados na disciplina **Algoritmos e Estruturas de Dados I**.
+Repositório pessoal para estudar os conceitos da disciplina **Algoritmos e Estruturas de Dados I**.
+
+- **⚠️ Observação:** A lógica foi adaptada para o meu entendimento.
 
 ## 🗂️ Estruturas Implementadas
 

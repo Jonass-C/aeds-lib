@@ -25,6 +25,9 @@ int procurarPorPosicao(Lista *lista, int posicao);
 int procurarPorDado(Lista *lista, int dado);
 bool contemDado(Lista *lista, int dado);
 int ocorrenciasDado(Lista *lista, int dado);
+void trocaDados(Lista *lista, int m, int n);
+void trocaElementos(Lista *lista, int m, int n);
+void trocaSeguinte(Lista *lista, int pos);
 void ordenarCrescenteDados(Lista *lista);
 void ordenarDecrescenteDados(Lista *lista);
 int tamanhoLista(Lista *lista);
@@ -32,4 +35,4 @@ Lista *mesclarListas(Lista *lista1, Lista *lista2);
 void imprimirLista(Lista *lista);
 int apagarLista(Lista *lista);
 
-#endif //LISTAS_H
+#endif

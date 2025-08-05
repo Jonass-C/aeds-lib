@@ -19,7 +19,7 @@ bool estaVazio(Pilha *pilha) {
     return pilha->topo->prox == NULL;
 }
 
-void inserirElemento(Pilha *pilha, int dado) {
+void empilha(Pilha *pilha, int dado) {
 
     No *adicionar = (No*) malloc(sizeof(No));
     adicionar->dado = dado;
@@ -29,17 +29,38 @@ void inserirElemento(Pilha *pilha, int dado) {
     pilha->tamanho++;
 }
 
-void removerElementos(Pilha *pilha) {
+int desempilha(Pilha *pilha) {
 
     if (estaVazio(pilha)) {
-        printf("Lista vazia\n");
-        return;
+        return -1;
     }
 
     No *remover = pilha->topo->prox;
     pilha->topo->prox = remover->prox;
+
+    int dado = remover->dado;
     free(remover);
     pilha->tamanho--;
+
+    return dado;
+}
+
+void removerItem(Pilha *pilha, int dado) {
+
+    Pilha *aux = criarPilha();
+
+    while (!estaVazio(pilha)) {
+        int valor = desempilha(pilha);
+        if (valor == dado) {
+            break;
+        } else {
+            empilha(aux, valor);
+        }
+    }
+
+    while (!estaVazio(aux)) {
+        empilha(pilha, desempilha(aux));
+    }
 }
 
 int consultarValor(Pilha *pilha) {
@@ -56,6 +77,7 @@ int tamanhoPilha(Pilha *pilha) {
 
     // return pilha->tamanho;
 
+    // lógica para retornar o tamanho
     if (estaVazio(pilha)) {
         return 0;
     }
@@ -70,7 +92,50 @@ int tamanhoPilha(Pilha *pilha) {
     return tamanho;
 }
 
+void ordenarPilha(Pilha *pilha) {
+
+    Pilha *aux = criarPilha();
+
+    while (!estaVazio(pilha)) {
+        int valor = desempilha(pilha);
+
+        while (!estaVazio(aux) && aux->topo->prox->dado > valor) {
+            empilha(pilha, desempilha(aux));
+        }
+
+        empilha(aux, valor);
+    }
+
+    while (!estaVazio(aux)) {
+        empilha(pilha, desempilha(aux));
+    }
+}
+
+void inverterPilha(Pilha *pilha) {
+
+    // uso de duas pilhas auxiliares
+
+    Pilha *aux1 = criarPilha();
+    while (!estaVazio(pilha)) {
+        empilha(aux1, desempilha(pilha));
+    }
+
+    Pilha *aux2 = criarPilha();
+    while (!estaVazio(aux1)) {
+        empilha(aux2, desempilha(aux1));
+    }
+
+    while (!estaVazio(aux2)) {
+        empilha(pilha, desempilha(aux2));
+    }
+}
+
 void imprimirPilha(Pilha *pilha) {
+
+    if (estaVazio(pilha)) {
+        printf("Pilha vazia\n");
+        return;
+    }
 
     No *aux = pilha->topo->prox;
     while (aux != NULL) {

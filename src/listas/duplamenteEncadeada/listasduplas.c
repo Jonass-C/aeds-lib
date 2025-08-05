@@ -21,6 +21,7 @@ bool estaVazio(Lista *lista) {
 }
 
 void inserirPorPosicao(Lista *lista, int posicao, int dado) {
+
     if (posicao >= 0 && posicao <= lista->tamanho) {
         No *adicionar = (No*) malloc(sizeof(No));
         adicionar->dado = dado;
@@ -42,7 +43,6 @@ void inserirPorPosicao(Lista *lista, int posicao, int dado) {
         printf("Posição incorreta\n");
         return;
     }
-
 }
 
 void inserirNoInicio(Lista *lista, int dado) {
@@ -56,7 +56,6 @@ void inserirNoInicio(Lista *lista, int dado) {
     }
     lista->cabeca->prox = adicionar;
     lista->tamanho++;
-
 }
 
 void inserirNoFim(Lista *lista, int dado) {
@@ -72,7 +71,6 @@ void inserirNoFim(Lista *lista, int dado) {
     adicionar->ant = aux;
     aux->prox = adicionar;
     lista->tamanho++;
-
 }
 
 void removerPorPosicao(Lista *lista, int posicao) {
@@ -104,23 +102,26 @@ void removerPorPosicao(Lista *lista, int posicao) {
 
 void trocarElementos(Lista *lista, int posicao1, int posicao2) {
 
-
     if (estaVazio(lista) || posicao1 < 0 || posicao2 < 0 || posicao1 >= lista->tamanho || posicao2 >= lista->tamanho || posicao1 == posicao2 || lista->tamanho < 2) {
         printf("Posições incorretas\n");
         return;
     }
 
-    No *troca1 = lista->cabeca->prox;
+    // irei considerar posicao1 = M e posicao2 = N
+
+    No *antM = lista->cabeca;
     for (int i = 0; i < posicao1; i++) {
-        troca1 = troca1->prox;
+        antM = antM->prox;
     }
 
-    No *troca2 = lista->cabeca->prox;
-    for (int j = 0; j < posicao2; j++) {
-        troca2 = troca2->prox;
+    No *antN = lista->cabeca;
+    for (int i = 0; i < posicao2; i++) {
+        antN = antN->prox;
     }
 
     if (posicao1 == posicao2 + 1 || posicao1 == posicao2 - 1) {
+        No *troca1 = antM->prox;
+        No *troca2 = antN->prox;
         if (troca1->prox == troca2) {
             troca1->prox = troca2->prox;
             if (troca2->prox != NULL) {
@@ -151,17 +152,23 @@ void trocarElementos(Lista *lista, int posicao1, int posicao2) {
         }
     }
 
-    No *aux = troca1;
-    troca1->ant = troca2->ant;
-    troca2->ant->prox = troca1;
-    troca1->prox = troca2->prox;
-    troca2->prox->ant = troca1;
+    No *N = antN->prox;
+    No *postM = antM->prox->prox;
 
-    troca2->ant = aux->ant;
-    aux->ant->prox = troca2;
-    troca2->prox = aux->prox;
-    aux->prox->ant = troca2;
+    No *M = antM->prox;
+    No *postN = antN->prox->prox;
 
+    antM->prox = N;
+    N->ant = antM;
+
+    postM->ant = N;
+    N->prox = postM;
+    //
+    antN->prox = M;
+    M->ant = antN;
+
+    postN->ant = M;
+    M->prox = postN;
 }
 
 void ordenarCrescenteDados(Lista *lista) {
@@ -206,10 +213,6 @@ void ordenarDecrescenteDados(Lista *lista) {
         }
         primeiro = primeiro->prox;
     }
-}
-
-int tamanhoLista(Lista *lista) {
-    return lista->tamanho;
 }
 
 void imprimirLista(Lista *lista) {

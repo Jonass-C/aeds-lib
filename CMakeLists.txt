@@ -28,3 +28,9 @@ add_executable(aeds_lib_filas
     "src/filas/filas.h"
     "src/filas/filas.c"
 )
+
+add_executable(aeds_lib_arvores
+    "src/arvores/main.c"
+    "src/arvores/arvore.h"
+    "src/arvores/arvore.c"
+)

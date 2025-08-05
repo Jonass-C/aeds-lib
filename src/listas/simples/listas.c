@@ -4,6 +4,7 @@
 #include "listas.h"
 
 Lista *criarLista() {
+
     Lista *lista = (Lista*) malloc(sizeof(Lista));
     lista->tamanho = 0;
 
@@ -61,7 +62,6 @@ void inserirPorPosicao(Lista *lista, int posicao, int dado) {
         printf("Posição incorreta\n");
         return;
     }
-
 }
 
 void removerElementoInicio(Lista *lista) {
@@ -209,6 +209,62 @@ int ocorrenciasDado(Lista *lista, int dado) {
     return ocorrencias;
 }
 
+void trocaDados(Lista *lista, int m, int n) {
+
+    No *aux1 = lista->cabeca->prox;
+    for (int i = 0; i < m; i++) {
+        aux1 = aux1->prox;
+    }
+
+    No *aux2 = lista->cabeca->prox;
+    for (int i = 0; i < n; i++) {
+        aux2 = aux2->prox;
+    }
+
+    int dado = aux1->dado;
+    aux1->dado = aux2->dado;
+    aux2->dado = dado;
+}
+
+void trocaElementos(Lista *lista, int m, int n) {
+
+    No *antM = lista->cabeca;
+    for (int i = 0; i < m; i++) {
+        antM = antM->prox;
+    }
+
+    No *antN = lista->cabeca;
+    for (int i = 0; i < n; i++) {
+        antN = antN->prox;
+    }
+
+    No *N = antN->prox;
+    No *postN = N->prox;
+    No *M = antM->prox;
+    No *postM = M->prox;
+
+    antM->prox = N;
+    N->prox = postM;
+
+    antN->prox = M;
+    M->prox = postN;
+}
+
+void trocaSeguinte(Lista *lista, int pos) {
+
+    No *ant = lista->cabeca;
+    for (int i = 0; i < pos-1; i++) {
+        ant = ant->prox;
+    }
+
+    No *troca1 = ant->prox;
+    No *troca2 = troca1->prox;
+
+    ant->prox = troca2;
+    troca1->prox = troca2->prox;
+    troca2->prox = troca1;
+}
+
 void ordenarCrescenteDados(Lista *lista) {
 
     if (lista->tamanho < 2) {
@@ -257,6 +313,7 @@ int tamanhoLista(Lista *lista) {
 
     // return lista->tamanho;
 
+    // lógica para retornar o tamanho
     if (estaVazio(lista)) {
         return 0;
     }
