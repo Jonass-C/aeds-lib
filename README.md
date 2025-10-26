@@ -10,10 +10,17 @@ Repositório pessoal para estudar os conceitos da disciplina **Algoritmos e Estr
 - [x] *Listas Duplamente Encadeadas*
 - [x] *Pilhas*
 - [x] *Filas*
-- [ ] Árvores
-- [ ] Ordenação
+- [ ] *Ordenação*
+- [x] *Pesquisa*
+- [x] *Árvores*
 
 ## ️⚙️ Compilação
 
 - Configurei o projeto com CMake e o construí com o CLion. 
-- Cada estruturas possui seu próprio diretório e executável, disponível no arquivo `CMakeLists.txt`
+- Cada estrutura possui seu próprio diretório e executável, disponível no arquivo `CMakeLists.txt`
+
+### 🚨 Compilador recomendado
+- Este projeto foi testado com **MinGW** ou **Cygwin** no Windows.
+- O **MSVC** (Visual Studio) pode gerar erros de compilação em algumas partes, como a utilização de **vetores de tamanho variável (VLA)** na função `inverterFila`.
+
+---

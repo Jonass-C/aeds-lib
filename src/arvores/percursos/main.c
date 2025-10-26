@@ -1,5 +1,4 @@
-﻿#include <stdio.h>
-#include "arvore.h"
+﻿#include "arvore.h"
 
 int main() {
 

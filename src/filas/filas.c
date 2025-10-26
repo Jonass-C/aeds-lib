@@ -1,7 +1,4 @@
-﻿#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include "filas.h"
+﻿#include "filas.h"
 
 Fila *criarFila() {
 

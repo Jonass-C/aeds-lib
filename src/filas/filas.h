@@ -1,5 +1,7 @@
 ﻿#ifndef FILAS_H
 #define FILAS_H
+#include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 
 typedef struct no {

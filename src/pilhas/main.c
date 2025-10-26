@@ -1,5 +1,4 @@
-﻿#include <stdio.h>
-#include "pilhas.h"
+﻿#include "pilhas.h"
 
 int main() {
 

@@ -1,6 +1,4 @@
-﻿#include <stdio.h>
-#include <stdlib.h>
-#include "arvore.h"
+﻿#include "arvore.h"
 
 No *criarNo(int valor) {
 

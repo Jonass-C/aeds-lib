@@ -1,5 +1,4 @@
-﻿#include <stdio.h>
-#include "filas.h"
+﻿#include "filas.h"
 
 int main() {
 

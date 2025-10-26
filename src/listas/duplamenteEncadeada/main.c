@@ -1,5 +1,4 @@
-﻿#include <stdio.h>
-#include "listasduplas.h"
+﻿#include "listasduplas.h"
 
 int main() {
 

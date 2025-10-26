@@ -1,7 +1,4 @@
-﻿#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include "pilhas.h"
+﻿#include "pilhas.h"
 
 Pilha *criarPilha() {
 
