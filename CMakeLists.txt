@@ -18,15 +18,15 @@ add_executable(listas_duplas
 )
 
 add_executable(pilhas
-    "src/pilhas/main.c"
-    "src/pilhas/pilhas.h"
-    "src/pilhas/pilhas.c"
+        "src/pilhas/main.c"
+        "src/pilhas/pilhas.h"
+        "src/pilhas/pilhas.c"
 )
 
 add_executable(filas
-    "src/filas/main.c"
-    "src/filas/filas.h"
-    "src/filas/filas.c"
+        "src/filas/main.c"
+        "src/filas/filas.h"
+        "src/filas/filas.c"
 )
 
 add_executable(pesquisa_sequencial
@@ -42,17 +42,15 @@ add_executable(pesquisa_binaria
 )
 
 add_executable(arvores_percursos
-    "src/arvores/percursos/main.c"
-    "src/arvores/percursos/arvore.h"
-    "src/arvores/percursos/arvore.c"
+        "src/arvores/percursos/main.c"
+        "src/arvores/percursos/arvore.h"
+        "src/arvores/percursos/arvore.c"
 )
 
 add_executable(arvores_abb
         "src/arvores/abb/main.c"
         "src/arvores/abb/abb.h"
         "src/arvores/abb/abb.c"
-        src/casamento_padroes/casamento_padroes.h
-        src/casamento_padroes/main.c
 )
 
 add_executable(arvores_avl
@@ -78,5 +76,18 @@ add_executable(casamento_padroes
         "src/casamento_padroes/main.c"
 )
 
-
-
+add_executable(ordenacao
+        "src/ordenacao/sort.h"
+        "src/ordenacao/bubble_sort.c"
+        "src/ordenacao/bucket_sort.c"
+        "src/ordenacao/comb_sort.c"
+        "src/ordenacao/counting_sort.c"
+        "src/ordenacao/gnome_sort.c"
+        "src/ordenacao/heap_sort.c"
+        "src/ordenacao/insertion_sort.c"
+        "src/ordenacao/merge_sort.c"
+        "src/ordenacao/quick_sort.c"
+        "src/ordenacao/select_sort.c"
+        "src/ordenacao/shell_sort.c"
+        "src/ordenacao/main.c"
+)
