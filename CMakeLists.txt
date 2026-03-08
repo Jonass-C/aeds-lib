@@ -51,6 +51,8 @@ add_executable(arvores_abb
         "src/arvores/abb/main.c"
         "src/arvores/abb/abb.h"
         "src/arvores/abb/abb.c"
+        src/casamento_padroes/casamento_padroes.h
+        src/casamento_padroes/main.c
 )
 
 add_executable(arvores_avl
@@ -65,12 +67,16 @@ add_executable(tabela_hash
         "src/tabela_hash/main.c"
 )
 
-#add_executable(forca_bruta "forçaBruta.c" "benchmark/benchmark.c")
-#add_executable(rabin_karp "rabinKarp.c" "benchmark/benchmark.c")
-#add_executable(kmp "kmp.c" "benchmark/benchmark.c")
-#add_executable(boyer_moore "boyer-moore/bm.c" "benchmark/benchmark.c")
-#add_executable(boyer_moore_horspool "boyer-moore/bmh.c" "benchmark/benchmark.c")
-#add_executable(boyer_moore_horspool_sunday "boyer-moore/bmhs.c" "benchmark/benchmark.c")
+add_executable(casamento_padroes
+        "src/casamento_padroes/forca_bruta.c"
+        "src/casamento_padroes/rabin_karp.c"
+        "src/casamento_padroes/kmp.c"
+        "src/casamento_padroes/boyer_moore.c"
+        "src/casamento_padroes/boyer_moore_horspool.c"
+        "src/casamento_padroes/boyer_moore_horspool_sunday.c"
+        "src/casamento_padroes/casamento_padroes.h"
+        "src/casamento_padroes/main.c"
+)
 
 
 
