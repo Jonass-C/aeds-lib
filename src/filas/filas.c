@@ -1,6 +1,6 @@
 ﻿#include "filas.h"
 
-Fila *criarFila() {
+Fila *criar_fila() {
 
     Fila *fila = (Fila*) malloc(sizeof(Fila));
     fila->tamanho = 0;
@@ -12,7 +12,7 @@ Fila *criarFila() {
     return fila;
 }
 
-bool estaVazio(Fila *fila) {
+bool esta_vazio(Fila *fila) {
     return fila->cabeca->prox == NULL;
 }
 
@@ -33,7 +33,7 @@ void enfileirar(Fila *fila, int dado) {
 
 int desenfileirar(Fila *fila) {
 
-    if (estaVazio(fila)) {
+    if (esta_vazio(fila)) {
         printf("Fila vazia\n");
         return -1;
     }
@@ -47,9 +47,9 @@ int desenfileirar(Fila *fila) {
     return dado;
 }
 
-int consultarValor(Fila *fila) {
+int consultar_valor(Fila *fila) {
 
-    if (estaVazio(fila)) {
+    if (esta_vazio(fila)) {
         printf("Lista vazia\n");
         return -1;
     }
@@ -57,11 +57,11 @@ int consultarValor(Fila *fila) {
     return fila->cabeca->prox->dado;
 }
 
-int tamanhoFila(Fila *fila) {
+int tamanho_fila(Fila *fila) {
     return fila->tamanho;
 }
 
-void inverterFila(Fila *fila) {
+void inverter_fila(Fila *fila) {
 
     if (fila->tamanho < 2) {
         return;
@@ -79,9 +79,9 @@ void inverterFila(Fila *fila) {
     }
 }
 
-Fila *mesclarFilas(Fila *fila1, Fila *fila2) {
+Fila *mesclar_filas(Fila *fila1, Fila *fila2) {
 
-    Fila *mesclada = criarFila();
+    Fila *mesclada = criar_fila();
 
     No *no1 = fila1->cabeca->prox;
 
@@ -100,9 +100,9 @@ Fila *mesclarFilas(Fila *fila1, Fila *fila2) {
     return mesclada;
 }
 
-bool compararFilas(Fila *fila1, Fila *fila2) {
+bool comparar_filas(Fila *fila1, Fila *fila2) {
 
-    if (fila1->tamanho != fila2->tamanho || estaVazio(fila1) || estaVazio(fila2)) {
+    if (fila1->tamanho != fila2->tamanho || esta_vazio(fila1) || esta_vazio(fila2)) {
         return false;
     }
 
@@ -120,9 +120,9 @@ bool compararFilas(Fila *fila1, Fila *fila2) {
     return true;
 }
 
-void imprimirFila(Fila *fila) {
+void imprimir_fila(Fila *fila) {
 
-    if (estaVazio(fila)) {
+    if (esta_vazio(fila)) {
         printf("Fila vazia\n");
         return;
     }
@@ -135,9 +135,9 @@ void imprimirFila(Fila *fila) {
     printf("\n");
 }
 
-int apagarFila(Fila *fila) {
+int apagar_fila(Fila *fila) {
 
-    if (estaVazio(fila)) {
+    if (esta_vazio(fila)) {
         printf("Lista vazia\n");
         free(fila->cabeca);
         free(fila);

@@ -3,27 +3,27 @@
 int main() {
 
     // Criando nó raiz da árvore
-    No *raiz = criarNo(10);
+    No *raiz = criar_no(10);
 
     // Adicionando nós internos
-    raiz->esquerda = criarNo(5);
-    raiz->direita  = criarNo(15);
+    raiz->esquerda = criar_no(5);
+    raiz->direita  = criar_no(15);
 
     // Adicionando nós folhas
-    raiz->esquerda->esquerda = criarNo(3);
-    raiz->esquerda->direita  = criarNo(7);
+    raiz->esquerda->esquerda = criar_no(3);
+    raiz->esquerda->direita  = criar_no(7);
 
-    raiz->direita->esquerda = criarNo(12);
-    raiz->direita->direita  = criarNo(18);
+    raiz->direita->esquerda = criar_no(12);
+    raiz->direita->direita  = criar_no(18);
 
     printf("\nPercurso em pre-ordem: ");
-    preOrdem(raiz);
+    pre_ordem(raiz);
 
     printf("\nPercurso em ordem: ");
-    emOrdem(raiz);
+    em_ordem(raiz);
 
     printf("\nPercurso em pos-ordem: ");
-    posOrdem(raiz);
+    pos_ordem(raiz);
 
     printf("\n");
 

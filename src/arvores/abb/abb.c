@@ -64,13 +64,13 @@ int retira(long valor, No** raiz) {
     }
 }
 
-void antecessor(No* remover, No** subEsq) {
-    if ((*subEsq)->dir != NULL)
-        antecessor(remover, &(*subEsq)->dir);
+void antecessor(No* remover, No** sub_esq) {
+    if ((*sub_esq)->dir != NULL)
+        antecessor(remover, &(*sub_esq)->dir);
     else {
-        remover->valor = (*subEsq)->valor;
-        No* aux = *subEsq;
-        *subEsq = (*subEsq)->esq;
+        remover->valor = (*sub_esq)->valor;
+        No* aux = *sub_esq;
+        *sub_esq = (*sub_esq)->esq;
         free(aux);
     }
 }

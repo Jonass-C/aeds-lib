@@ -1,6 +1,6 @@
 ﻿#include "pilhas.h"
 
-Pilha *criarPilha() {
+Pilha *criar_pilha() {
 
     Pilha *pilha = (Pilha*) malloc(sizeof(Pilha));
     pilha->tamanho = 0;
@@ -12,7 +12,7 @@ Pilha *criarPilha() {
     return pilha;
 }
 
-bool estaVazio(Pilha *pilha) {
+bool esta_vazio(Pilha *pilha) {
     return pilha->topo->prox == NULL;
 }
 
@@ -28,7 +28,7 @@ void empilha(Pilha *pilha, int dado) {
 
 int desempilha(Pilha *pilha) {
 
-    if (estaVazio(pilha)) {
+    if (esta_vazio(pilha)) {
         return -1;
     }
 
@@ -42,11 +42,11 @@ int desempilha(Pilha *pilha) {
     return dado;
 }
 
-void removerItem(Pilha *pilha, int dado) {
+void remover_item(Pilha *pilha, int dado) {
 
-    Pilha *aux = criarPilha();
+    Pilha *aux = criar_pilha();
 
-    while (!estaVazio(pilha)) {
+    while (!esta_vazio(pilha)) {
         int valor = desempilha(pilha);
         if (valor == dado) {
             break;
@@ -55,14 +55,14 @@ void removerItem(Pilha *pilha, int dado) {
         }
     }
 
-    while (!estaVazio(aux)) {
+    while (!esta_vazio(aux)) {
         empilha(pilha, desempilha(aux));
     }
 }
 
-int consultarValor(Pilha *pilha) {
+int consultar_valor(Pilha *pilha) {
 
-    if (estaVazio(pilha)) {
+    if (esta_vazio(pilha)) {
         printf("Pilha vazia\n");
         return -1;
     }
@@ -70,12 +70,12 @@ int consultarValor(Pilha *pilha) {
     return pilha->topo->prox->dado;
 }
 
-int tamanhoPilha(Pilha *pilha) {
+int tamanho_pilha(Pilha *pilha) {
 
     // return pilha->tamanho;
 
     // lógica para retornar o tamanho
-    if (estaVazio(pilha)) {
+    if (esta_vazio(pilha)) {
         return 0;
     }
 
@@ -89,47 +89,47 @@ int tamanhoPilha(Pilha *pilha) {
     return tamanho;
 }
 
-void ordenarPilha(Pilha *pilha) {
+void ordenar_pilha(Pilha *pilha) {
 
-    Pilha *aux = criarPilha();
+    Pilha *aux = criar_pilha();
 
-    while (!estaVazio(pilha)) {
+    while (!esta_vazio(pilha)) {
         int valor = desempilha(pilha);
 
-        while (!estaVazio(aux) && aux->topo->prox->dado > valor) {
+        while (!esta_vazio(aux) && aux->topo->prox->dado > valor) {
             empilha(pilha, desempilha(aux));
         }
 
         empilha(aux, valor);
     }
 
-    while (!estaVazio(aux)) {
+    while (!esta_vazio(aux)) {
         empilha(pilha, desempilha(aux));
     }
 }
 
-void inverterPilha(Pilha *pilha) {
+void inverter_pilha(Pilha *pilha) {
 
     // uso de duas pilhas auxiliares
 
-    Pilha *aux1 = criarPilha();
-    while (!estaVazio(pilha)) {
+    Pilha *aux1 = criar_pilha();
+    while (!esta_vazio(pilha)) {
         empilha(aux1, desempilha(pilha));
     }
 
-    Pilha *aux2 = criarPilha();
-    while (!estaVazio(aux1)) {
+    Pilha *aux2 = criar_pilha();
+    while (!esta_vazio(aux1)) {
         empilha(aux2, desempilha(aux1));
     }
 
-    while (!estaVazio(aux2)) {
+    while (!esta_vazio(aux2)) {
         empilha(pilha, desempilha(aux2));
     }
 }
 
-void imprimirPilha(Pilha *pilha) {
+void imprimir_pilha(Pilha *pilha) {
 
-    if (estaVazio(pilha)) {
+    if (esta_vazio(pilha)) {
         printf("Pilha vazia\n");
         return;
     }
@@ -142,9 +142,9 @@ void imprimirPilha(Pilha *pilha) {
     printf("\n");
 }
 
-int apagarPilha(Pilha *pilha) {
+int apagar_pilha(Pilha *pilha) {
 
-    if (estaVazio(pilha)) {
+    if (esta_vazio(pilha)) {
         printf("Pilha vazia\n");
         free(pilha->topo);
         free(pilha);

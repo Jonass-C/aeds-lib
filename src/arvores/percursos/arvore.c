@@ -1,6 +1,6 @@
 ﻿#include "arvore.h"
 
-No *criarNo(int valor) {
+No *criar_no(int valor) {
 
     No *adicionar = (No*) malloc(sizeof(No));
     adicionar->valor = valor;
@@ -10,26 +10,26 @@ No *criarNo(int valor) {
     return adicionar;
 }
 
-void preOrdem(No *raiz) {
+void pre_ordem(No *raiz) {
     if (raiz == NULL) return;
 
     printf("%d ", raiz->valor);
-    preOrdem(raiz->esquerda);
-    preOrdem(raiz->direita);
+    pre_ordem(raiz->esquerda);
+    pre_ordem(raiz->direita);
 }
 
-void emOrdem(No *raiz) {
+void em_ordem(No *raiz) {
     if (raiz == NULL) return;
 
-    emOrdem(raiz->esquerda);
+    em_ordem(raiz->esquerda);
     printf("%d ", raiz->valor);
-    emOrdem(raiz->direita);
+    em_ordem(raiz->direita);
 }
 
-void posOrdem(No *raiz) {
+void pos_ordem(No *raiz) {
     if (raiz == NULL) return;
 
-    posOrdem(raiz->esquerda);
-    posOrdem(raiz->direita);
+    pos_ordem(raiz->esquerda);
+    pos_ordem(raiz->direita);
     printf("%d ", raiz->valor);
 }

@@ -14,16 +14,16 @@ typedef struct {
     No *cabeca;
 } Fila;
 
-Fila *criarFila();
-bool estaVazio(Fila *fila);
+Fila *criar_fila();
+bool esta_vazio(Fila *fila);
 void enfileirar(Fila *fila, int dado);
 int desenfileirar(Fila *fila);
-int consultarValor(Fila *fila);
-int tamanhoFila(Fila *fila);
-void inverterFila(Fila *fila);
-Fila *mesclarFilas(Fila *fila1, Fila *fila2);
-bool compararFilas(Fila *fila1, Fila *fila2);
-void imprimirFila(Fila *fila);
-int apagarFila(Fila *fila);
+int consultar_valor(Fila *fila);
+int tamanho_fila(Fila *fila);
+void inverter_fila(Fila *fila);
+Fila *mesclar_filas(Fila *fila1, Fila *fila2);
+bool comparar_filas(Fila *fila1, Fila *fila2);
+void imprimir_fila(Fila *fila);
+int apagar_fila(Fila *fila);
 
 #endif

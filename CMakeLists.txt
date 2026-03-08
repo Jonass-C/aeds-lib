@@ -12,9 +12,9 @@ add_executable(listas_simples
 )
 
 add_executable(listas_duplas
-        "src/listas/duplamenteEncadeada/main.c"
-        "src/listas/duplamenteEncadeada/listasduplas.h"
-        "src/listas/duplamenteEncadeada/listasduplas.c"
+        "src/listas/duplamente_encadeada/main.c"
+        "src/listas/duplamente_encadeada/listas_duplas.h"
+        "src/listas/duplamente_encadeada/listas_duplas.c"
 )
 
 add_executable(pilhas
@@ -41,7 +41,7 @@ add_executable(pesquisa_binaria
         "src/pesquisa/binaria/binaria.c"
 )
 
-add_executable(arvores
+add_executable(arvores_percursos
     "src/arvores/percursos/main.c"
     "src/arvores/percursos/arvore.h"
     "src/arvores/percursos/arvore.c"
@@ -59,7 +59,18 @@ add_executable(arvores_avl
         "src/arvores/avl/avl.c"
 )
 
+add_executable(tabela_hash
+        "src/tabela_hash/tabela_hash.c"
+        "src/tabela_hash/tabela_hash.h"
+        "src/tabela_hash/main.c"
+)
 
+#add_executable(forca_bruta "forçaBruta.c" "benchmark/benchmark.c")
+#add_executable(rabin_karp "rabinKarp.c" "benchmark/benchmark.c")
+#add_executable(kmp "kmp.c" "benchmark/benchmark.c")
+#add_executable(boyer_moore "boyer-moore/bm.c" "benchmark/benchmark.c")
+#add_executable(boyer_moore_horspool "boyer-moore/bmh.c" "benchmark/benchmark.c")
+#add_executable(boyer_moore_horspool_sunday "boyer-moore/bmhs.c" "benchmark/benchmark.c")
 
 
 

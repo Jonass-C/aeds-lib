@@ -12,21 +12,21 @@ int main() {
     insere(5, &t); // repetido
 
     printf("Tabela atual: ");
-    for (int i = 1; i <= t.numElementos; i++) {
+    for (int i = 1; i <= t.num_elementos; i++) {
         printf("%ld ", t.Item[i]);
     }
     printf("\n");
 
     printf("\n=== Testando pesquisa binária ===\n");
-    printf("Pesquisando 15: %d\n", pesquisaBin(&t, 15));
-    printf("Pesquisando 7: %d\n", pesquisaBin(&t, 7));
+    printf("Pesquisando 15: %d\n", pesquisa_bin(&t, 15));
+    printf("Pesquisando 7: %d\n", pesquisa_bin(&t, 7));
 
     printf("\n=== Testando remoção ===\n");
     retira(10, &t);
     retira(99, &t);
 
     printf("Tabela após remoções: ");
-    for (int i = 1; i <= t.numElementos; i++) {
+    for (int i = 1; i <= t.num_elementos; i++) {
         printf("%ld ", t.Item[i]);
     }
     printf("\n");

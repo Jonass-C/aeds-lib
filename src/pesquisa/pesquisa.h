@@ -7,12 +7,12 @@
 
 typedef struct {
     long Item[MAX + 1];
-    int numElementos;
+    int num_elementos;
 } Tabela;
 
 void inicializa(Tabela*);
-int pesquisaSeq(Tabela*, long);
-int pesquisaBin(Tabela*, long);
+int pesquisa_seq(Tabela*, long);
+int pesquisa_bin(Tabela*, long);
 void insere(long, Tabela*);
 void retira(long, Tabela*);
 

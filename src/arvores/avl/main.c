@@ -17,7 +17,7 @@ int main() {
     }
 
     printf("\nFatores de balanceamento após inserções:\n");
-    imprimirAlturas(arvore);
+    imprimir_alturas(arvore);
 
     // Impressão em ordem
     printf("\nÁrvore em ordem (central):\n");

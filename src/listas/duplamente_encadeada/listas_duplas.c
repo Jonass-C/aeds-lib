@@ -1,6 +1,6 @@
-#include "listasduplas.h"
+#include "listas_duplas.h"
 
-Lista *criarLista() {
+Lista *criar_lista() {
 
     Lista *lista = (Lista*) malloc(sizeof(Lista));
     lista->tamanho = 0;
@@ -13,11 +13,11 @@ Lista *criarLista() {
     return lista;
 }
 
-bool estaVazio(Lista *lista) {
+bool esta_vazio(Lista *lista) {
     return lista->cabeca->prox == NULL;
 }
 
-void inserirPorPosicao(Lista *lista, int posicao, int dado) {
+void inserir_por_posicao(Lista *lista, int posicao, int dado) {
 
     if (posicao >= 0 && posicao <= lista->tamanho) {
         No *adicionar = (No*) malloc(sizeof(No));
@@ -42,7 +42,7 @@ void inserirPorPosicao(Lista *lista, int posicao, int dado) {
     }
 }
 
-void inserirNoInicio(Lista *lista, int dado) {
+void inserir_no_inicio(Lista *lista, int dado) {
 
     No *adicionar = (No*) malloc(sizeof(No));
     adicionar->dado = dado;
@@ -55,7 +55,7 @@ void inserirNoInicio(Lista *lista, int dado) {
     lista->tamanho++;
 }
 
-void inserirNoFim(Lista *lista, int dado) {
+void inserir_no_fim(Lista *lista, int dado) {
 
     No *aux = lista->cabeca;
     while (aux->prox != NULL) {
@@ -70,9 +70,9 @@ void inserirNoFim(Lista *lista, int dado) {
     lista->tamanho++;
 }
 
-void removerPorPosicao(Lista *lista, int posicao) {
+void remover_por_posicao(Lista *lista, int posicao) {
 
-    if (estaVazio(lista)) {
+    if (esta_vazio(lista)) {
         printf("Lista vazia\n");
         return;
     }
@@ -97,9 +97,9 @@ void removerPorPosicao(Lista *lista, int posicao) {
     }
 }
 
-void trocarElementos(Lista *lista, int posicao1, int posicao2) {
+void trocar_elementos(Lista *lista, int posicao1, int posicao2) {
 
-    if (estaVazio(lista) || posicao1 < 0 || posicao2 < 0 || posicao1 >= lista->tamanho || posicao2 >= lista->tamanho || posicao1 == posicao2 || lista->tamanho < 2) {
+    if (esta_vazio(lista) || posicao1 < 0 || posicao2 < 0 || posicao1 >= lista->tamanho || posicao2 >= lista->tamanho || posicao1 == posicao2 || lista->tamanho < 2) {
         printf("Posições incorretas\n");
         return;
     }
@@ -168,7 +168,7 @@ void trocarElementos(Lista *lista, int posicao1, int posicao2) {
     M->prox = postN;
 }
 
-void ordenarCrescenteDados(Lista *lista) {
+void ordenar_crescente_dados(Lista *lista) {
 
     if (lista->tamanho < 2) {
         return;
@@ -190,7 +190,7 @@ void ordenarCrescenteDados(Lista *lista) {
     }
 }
 
-void ordenarDecrescenteDados(Lista *lista) {
+void ordenar_decrescente_dados(Lista *lista) {
 
     if (lista->tamanho < 2) {
         return;
@@ -212,9 +212,9 @@ void ordenarDecrescenteDados(Lista *lista) {
     }
 }
 
-void imprimirLista(Lista *lista) {
+void imprimir_lista(Lista *lista) {
 
-    if (estaVazio(lista)) {
+    if (esta_vazio(lista)) {
         printf("Lista vazia\n");
         return;
     }
@@ -227,9 +227,9 @@ void imprimirLista(Lista *lista) {
     printf("\n");
 }
 
-int apagarLista(Lista *lista) {
+int apagar_lista(Lista *lista) {
 
-    if (estaVazio(lista)) {
+    if (esta_vazio(lista)) {
         printf("Lista vazia\n");
         free(lista->cabeca);
         free(lista);

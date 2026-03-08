@@ -1,14 +1,14 @@
 #include "../pesquisa.h"
 
 void inicializa(Tabela* tabela) {
-    tabela->numElementos = 0;
+    tabela->num_elementos = 0;
 }
 
-int pesquisaBin(Tabela* tabela, long valor) {
-    if (tabela->numElementos == 0)
+int pesquisa_bin(Tabela* tabela, long valor) {
+    if (tabela->num_elementos == 0)
         return 0;
 
-    int i, esq = 1, dir = tabela->numElementos;
+    int i, esq = 1, dir = tabela->num_elementos;
     do {
         i = (esq + dir) / 2;
         if (valor > tabela->Item[i])
@@ -24,30 +24,30 @@ int pesquisaBin(Tabela* tabela, long valor) {
 }
 
 void insere(long valor, Tabela* tabela) {
-    if (tabela->numElementos == MAX)
+    if (tabela->num_elementos == MAX)
         printf("Tabela cheia\n");
-    else if (pesquisaBin(tabela, valor))
+    else if (pesquisa_bin(tabela, valor))
         printf("Valor já inserido\n");
     else {
-        int i = tabela->numElementos;
+        int i = tabela->num_elementos;
         while (i > 0 && tabela->Item[i] > valor) {
             tabela->Item[i + 1] = tabela->Item[i];
             i--;
         }
         tabela->Item[i + 1] = valor;
-        tabela->numElementos++;
+        tabela->num_elementos++;
     }
 }
 
 void retira(long valor, Tabela* tabela) {
-    int i = pesquisaBin(tabela, valor);
+    int i = pesquisa_bin(tabela, valor);
     if (i == 0)
         printf("Valor não está na tabela\n");
     else {
-        for (int j = i; j < tabela->numElementos; j++) {
+        for (int j = i; j < tabela->num_elementos; j++) {
             tabela->Item[j] = tabela->Item[j + 1];
         }
-        tabela->numElementos--;
+        tabela->num_elementos--;
     }
 
 }

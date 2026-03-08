@@ -10,9 +10,9 @@ typedef struct No {
 } No;
 
 // por enquanto há apenas as funções mais simples de percurso
-No *criarNo(int valor);
-void preOrdem(No *raiz);
-void emOrdem(No *raiz);
-void posOrdem(No *raiz);
+No *criar_no(int valor);
+void pre_ordem(No *raiz);
+void em_ordem(No *raiz);
+void pos_ordem(No *raiz);
 
 #endif

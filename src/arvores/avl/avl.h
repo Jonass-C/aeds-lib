@@ -23,6 +23,6 @@ void rse(No**);
 void rsd(No**);
 int balanca_esquerda(No**);
 int balanca_direita(No**);
-void imprimirAlturas(No*);
+void imprimir_alturas(No*);
 
 #endif

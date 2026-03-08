@@ -16,6 +16,21 @@ int pesquisa(No* raiz, long valor) {
         return 1;
 }
 
+int insere(long valor, No** raiz) {
+    if (*raiz == NULL) {
+        *raiz = cria_no(valor);
+        return 1;
+    }
+
+    if (valor < (*raiz)->valor)
+        insere(valor, &(*raiz)->esq);
+    else
+        insere(valor, &(*raiz)->dir);
+
+    balanceamento(raiz);
+    return 1;
+}
+
 No *cria_no(long valor) {
     No* no = (No*) malloc(sizeof(No));
     no->valor = valor;
@@ -50,13 +65,13 @@ int retira(long valor, No** raiz) {
     }
 }
 
-void antecessor(No* remover, No** subEsq) {
-    if ((*subEsq)->dir != NULL)
-        antecessor(remover, &(*subEsq)->dir);
+void antecessor(No* remover, No** sub_esq) {
+    if ((*sub_esq)->dir != NULL)
+        antecessor(remover, &(*sub_esq)->dir);
     else {
-        remover->valor = (*subEsq)->valor;
-        No* aux = *subEsq;
-        *subEsq = (*subEsq)->esq;
+        remover->valor = (*sub_esq)->valor;
+        No* aux = *sub_esq;
+        *sub_esq = (*sub_esq)->esq;
         free(aux);
     }
 }
@@ -70,21 +85,6 @@ void central(No* raiz) {
     central(raiz->dir);
 }
 
-int insere(long valor, No** raiz) {
-    if (*raiz == NULL) {
-        *raiz = cria_no(valor);
-        return 1;
-    }
-
-    if (valor < (*raiz)->valor)
-        insere(valor, &(*raiz)->esq);
-    else
-        insere(valor, &(*raiz)->dir);
-
-    balanceamento(raiz);
-    return 1;
-}
-
 int fb(No* raiz) {
     if (raiz == NULL)
         return 0;
@@ -93,17 +93,17 @@ int fb(No* raiz) {
 }
 
 int altura(No* raiz) {
-    int altEsq, altDir;
+    int alt_esq, alt_dir;
     if (raiz == NULL)
         return 0;
 
-    altEsq = altura(raiz->esq);
-    altDir = altura(raiz->dir);
+    alt_esq = altura(raiz->esq);
+    alt_dir = altura(raiz->dir);
 
-    if (altEsq > altDir)
-        return altEsq + 1;
+    if (alt_esq > alt_dir)
+        return alt_esq + 1;
     else
-        return altDir + 1;
+        return alt_dir + 1;
 }
 
 int balanceamento(No** raiz) {
@@ -160,9 +160,9 @@ int balanca_direita(No** raiz) {
     return 0;
 }
 
-void imprimirAlturas(No* raiz) {
+void imprimir_alturas(No* raiz) {
     if (!raiz) return;
-    imprimirAlturas(raiz->esq);
+    imprimir_alturas(raiz->esq);
     printf("Valor: %ld, FB: %d\n", raiz->valor, fb(raiz));
-    imprimirAlturas(raiz->dir);
+    imprimir_alturas(raiz->dir);
 }

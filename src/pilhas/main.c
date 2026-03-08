@@ -2,7 +2,7 @@
 
 int main() {
 
-    Pilha *pilha = criarPilha();
+    Pilha *pilha = criar_pilha();
 
     printf("\nInserindo elementos na pilha");
     empilha(pilha, 10);
@@ -10,34 +10,34 @@ int main() {
     empilha(pilha, 30);
     empilha(pilha, 40);
     empilha(pilha, 50);
-    imprimirPilha(pilha);
+    imprimir_pilha(pilha);
 
-    printf("\nConsultando o topo da pilha: %d", consultarValor(pilha));
+    printf("\nConsultando o topo da pilha: %d", consultar_valor(pilha));
 
-    printf("\nTamanho da pilha: %d\n", tamanhoPilha(pilha));
+    printf("\nTamanho da pilha: %d\n", tamanho_pilha(pilha));
 
     printf("\nRemovendo elemento do topo");
     desempilha(pilha);
-    imprimirPilha(pilha);
+    imprimir_pilha(pilha);
 
     printf("\nRemovendo o valor 30 da pilha");
-    removerItem(pilha, 30);
-    imprimirPilha(pilha);
+    remover_item(pilha, 30);
+    imprimir_pilha(pilha);
 
     printf("\nOrdenando a pilha");
-    ordenarPilha(pilha);
-    imprimirPilha(pilha);
+    ordenar_pilha(pilha);
+    imprimir_pilha(pilha);
 
     printf("\nInvertendo a pilha");
-    inverterPilha(pilha);
-    imprimirPilha(pilha);
+    inverter_pilha(pilha);
+    imprimir_pilha(pilha);
 
-    printf("\nConsultando novo topo da pilha: %d", consultarValor(pilha));
+    printf("\nConsultando novo topo da pilha: %d", consultar_valor(pilha));
 
-    printf("\nTamanho da pilha: %d\n", tamanhoPilha(pilha));
+    printf("\nTamanho da pilha: %d\n", tamanho_pilha(pilha));
 
     printf("\nApagando a pilha\n");
-    apagarPilha(pilha);
+    apagar_pilha(pilha);
 
     return 0;
 }
